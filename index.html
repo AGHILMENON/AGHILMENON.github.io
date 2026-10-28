@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aghil Menon Portfolio</title>
+<meta name="description" content="Aghil Menon Udayakumaran, AI Project Manager in Bengaluru. Hands-on, on-site AI delivery across GenAI, computer vision and ML.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column with a schematic "wire" timeline on the left; copper accent nods to the electrical-engineering roots */
+:root{
+  --bg:#F2F4F5; --surface:#FFFFFF; --ink:#16212B; --muted:#5A6873; --line:#D5DCE0;
+  --copper:#A9561F; --copper-soft:#F4E6DB; --node:#2D5E7A;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1519; --surface:#172027; --ink:#E6ECEF; --muted:#94A3AD; --line:#2A3740;
+  --copper:#E39058; --copper-soft:#33251C; --node:#7FB3D1; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1519; --surface:#172027; --ink:#E6ECEF; --muted:#94A3AD; --line:#2A3740;
+  --copper:#E39058; --copper-soft:#33251C; --node:#7FB3D1; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:56px 72px;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+h2{font-size:1.75rem;font-weight:700;letter-spacing:-.01em}
+.eyebrow{font:500 .75rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--copper)}
+section{display:flex;flex-direction:column;gap:24px}
+.sec-head{display:flex;flex-direction:column;gap:10px}
+p{margin:0;max-width:65ch}
+a{color:var(--copper)}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:22px}
+.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.hero h1 span{color:var(--copper)}
+.role{font:500 1.05rem/1.4 var(--f-mono);color:var(--node)}
+.lede{font-size:1.15rem;color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.facts li{font:500 .8rem/1 var(--f-mono);border:1px solid var(--line);padding:9px 12px;border-radius:999px;background:var(--surface);color:var(--muted)}
+.facts b{color:var(--ink);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:600 .9rem/1 var(--f-body);padding:12px 16px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--copper)}
+
+/* Timeline as a wire with nodes */
+.timeline{list-style:none;margin:0;padding:0 0 0 28px;position:relative;display:flex;flex-direction:column;gap:8px}
+.timeline::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--copper),var(--line))}
+.job{position:relative}
+.job::before{content:"";position:absolute;left:-27px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--node)}
+.job.ai::before{border-color:var(--copper);background:var(--copper-soft)}
+.job button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:12px 14px;border-radius:10px;cursor:pointer}
+.job button:hover{background:var(--surface)}
+.job button:focus-visible{outline:2px solid var(--copper)}
+.job .t{font:700 1.1rem/1.3 var(--f-display);min-width:0}
+.job .d{font:400 .8rem/1.6 var(--f-mono);color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.job .o{color:var(--muted);font-size:.92rem}
+.job .chev{font:500 .8rem var(--f-mono);color:var(--copper)}
+.job .body{padding:4px 14px 14px;color:var(--ink)}
+.job .body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;max-width:65ch}
+.phase{font:500 .72rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:18px 0 4px -28px}
+.phase:first-child{margin-top:0}
+
+/* Projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .8rem/1 var(--f-mono);padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj h3{font-size:1.05rem;font-weight:700;line-height:1.3}
+.proj p{color:var(--muted);font-size:.92rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{font:400 .72rem/1 var(--f-mono);padding:5px 8px;border-radius:4px;background:var(--copper-soft);color:var(--copper)}
+.count{font:400 .8rem var(--f-mono);color:var(--muted)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 32px}
+.sk h3{font:500 .78rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--node);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.sk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.95rem}
+
+/* Credentials */
+.creds{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.cred{border-top:2px solid var(--copper);padding-top:12px;display:flex;flex-direction:column;gap:4px}
+.cred b{font:700 1.05rem/1.3 var(--f-display)}
+.cred span{color:var(--muted);font-size:.9rem}
+
+.ground{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;border-top:1px solid var(--line)}
+.g{padding:20px 20px 22px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
+.gk{font:500 .72rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--copper);display:flex;align-items:center;gap:8px}
+.gk::before{content:"";width:18px;height:2px;background:var(--copper)}
+.g h3{font-size:1.15rem;font-weight:700;line-height:1.3}
+.g p{color:var(--muted);font-size:.95rem}
+.contact{background:var(--ink);color:var(--bg);border-radius:16px;padding:32px max(20px,4vw);display:flex;flex-direction:column;gap:18px}
+.contact h2{color:var(--bg)}
+.contact p{color:var(--bg);opacity:.8}
+.contact .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.contact code{font:500 .95rem var(--f-mono);background:rgba(127,127,127,.18);padding:10px 12px;border-radius:8px;user-select:all;word-break:break-all}
+.contact .btn{background:var(--copper);border-color:var(--copper);color:#fff}
+.contact .btn.ghost{background:transparent;color:var(--bg);border-color:rgba(127,127,127,.5)}
+.toast{font:500 .8rem var(--f-mono);color:var(--copper)}
+@media (prefers-reduced-motion:no-preference){.proj{transition:transform .15s}.proj:hover{transform:translateY(-2px)}}
+@media (max-width:520px){.job button{grid-template-columns:1fr}.job .d{text-align:left}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="hero">
+    <span class="eyebrow">Portfolio · Bengaluru, India · Boots on the ground</span>
+    <h1>Aghil Menon <span>Udayakumaran</span></h1>
+    <div class="role">AI Project Manager · Technical Scrum Master</div>
+    <p class="lede">I don't manage AI projects from a dashboard. I go to the shop floor, the warehouse and the client's desk to see how the work really happens, then get my hands into the build: the data, the pipeline, the vendors, the prototype. That depth is what lets me write a SOW that holds up and ship GenAI, computer vision and ML systems that people actually use.</p>
+    <p class="lede" style="color:var(--muted);font-size:1rem">The habit comes from years as an electrical engineer on project sites, where you learn the drawing is never the whole story.</p>
+    <ul class="facts">
+      <li><b>ResoluteAI Software</b> since Apr 2024</li>
+      <li><b>PSM I</b> certified</li>
+      <li><b>2.5 yrs</b> client management</li>
+      <li><b>M.Tech</b> Power Electronics</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="#work">See projects</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/aghilmenonudayakumaran" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/AGHILMENON" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section id="approach">
+    <div class="sec-head"><span class="eyebrow">How I work</span><h2>Ground first, plan second</h2><p>A project plan is only as good as my understanding of the ground it sits on. So I go and get that understanding myself.</p></div>
+    <div class="ground">
+      <div class="g"><span class="gk">On site</span><h3>I go where the problem lives</h3><p>Forward-deployed delivery: I work at client sites, walk the operation and talk to the people doing the job before I commit to scope. Industrial plants, warehouses, OT and IIoT environments included.</p></div>
+      <div class="g"><span class="gk">In the build</span><h3>I touch the stack, not just the tickets</h3><p>I've built RPA flows, AI agents and prototypes myself, and worked hands-on with MCP, vector databases and CI/CD. When I estimate, I know what the work involves.</p></div>
+      <div class="g"><span class="gk">At the root</span><h3>I dig until I find the real cause</h3><p>Root cause analysis is a regular part of how I run delivery. A fix that only treats the symptom comes back in the next sprint.</p></div>
+      <div class="g"><span class="gk">In the details</span><h3>I handle the unglamorous parts</h3><p>On the WMS project I sourced and onboarded the hardware vendors myself. I own SOWs, costing models, SLAs and AMC renewals, so the commercial side matches what's on the ground.</p></div>
+    </div>
+  </section>
+
+  <section id="career">
+    <div class="sec-head"><span class="eyebrow">Career</span><h2>From project sites to AI delivery</h2><p>Tap a role to see what it involved.</p></div>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <section id="work">
+    <div class="sec-head"><span class="eyebrow">Selected delivery</span><h2>Projects I've delivered</h2></div>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+    <div class="count" id="count"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="eyebrow">Toolkit</span><h2>How I work, and with what</h2></div>
+    <div class="skills">
+      <div class="sk"><h3>Delivery &amp; Agile</h3><ul><li>Scrum ceremonies</li><li>Sprint metrics &amp; burndown</li><li>RAID logs</li><li>Critical path</li><li>SOWs &amp; costing models</li><li>BRDs &amp; PRDs</li><li>SLAs &amp; AMCs</li><li>Change requests</li><li>RCA</li><li>SOPs</li><li>People management</li></ul></div>
+      <div class="sk"><h3>AI / ML</h3><ul><li>LLMs &amp; RAG</li><li>AI agents &amp; copilots</li><li>LangChain</li><li>LLaMA</li><li>MCP</li><li>Embeddings &amp; vector DBs</li><li>LangSmith / Langfuse evals</li><li>PyTorch</li><li>TensorFlow</li><li>Hugging Face</li><li>scikit-learn</li><li>CNN · RNN/LSTM</li><li>MLOps</li></ul></div>
+      <div class="sk"><h3>Cloud &amp; Data</h3><ul><li>AWS</li><li>Azure</li><li>GCP</li><li>Docker</li><li>Kubernetes</li><li>Serverless</li><li>CI/CD</li><li>SQL</li><li>Airflow</li><li>Kafka</li><li>dbt</li><li>Elasticsearch / OpenSearch</li><li>Power BI</li></ul></div>
+      <div class="sk"><h3>Tools &amp; Automation</h3><ul><li>Jira (workflows, automation)</li><li>Confluence</li><li>Azure DevOps</li><li>ServiceNow</li><li>Power Automate</li><li>n8n / Make / Zapier</li><li>Claude Code</li><li>Lovable</li><li>Excel &amp; PowerPoint</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><span class="eyebrow">Credentials</span><h2>Education &amp; certification</h2></div>
+    <div class="creds">
+      <div class="cred"><b>Professional Scrum Master I</b><span>Scrum.org</span></div>
+      <div class="cred"><b>M.Tech, Power Electronics</b><span>Karunya University · 2016</span></div>
+      <div class="cred"><b>B.E., Electrical Engineering</b><span>Panimalar Institute of Technology · 2009–2013</span></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="eyebrow">Contact</span>
+    <h2>Have an AI problem that needs someone on the ground?</h2>
+    <p>I'm open to AI Project Manager, Technical Program Manager and delivery roles.</p>
+    <div class="row">
+      <code id="email">aghilmenon@gmail.com</code>
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/aghilmenonudayakumaran" target="_blank" rel="noopener">Message on LinkedIn</a>
+      <span class="toast" id="toast" aria-live="polite"></span>
+    </div>
+  </section>
+</main>
+
+<script>
+const jobs=[
+ {phase:"AI delivery"},
+ {ai:1,t:"AI Project Manager",o:"ResoluteAI Software, Bengaluru",d:"Oct 2025 – Present",b:["Own delivery end to end for AI engagements, from SOW and costing through go-live and AMC renewals","Manage SLAs across the company's projects and lead the delivery team","Run pilots and PoCs, present results to leadership and scale them","Act as product owner for internal tools: roadmap, prioritising change requests and bugs"],open:1},
+ {ai:1,t:"Technical Scrum Master",o:"ResoluteAI Software, Bengaluru",d:"Aug 2024 – Sep 2025",b:["Set up Jira from scratch, including workflows, dashboards and automation rules","Ran Agile ceremonies, reported burndown and velocity to leadership","Owned Confluence spaces, templates and retro pages; retro actions improved predictability","Contributed to ISO 27001 certification and secure development practices"]},
+ {ai:1,t:"AI Program Manager Intern",o:"ResoluteAI Software, Bengaluru",d:"Apr – Jul 2024",b:["Coordinated AI project delivery and stakeholder updates","Prepared minutes of meetings and tracked action items"]},
+ {ai:1,t:"Data Science Intern",o:"AI Variant, Bengaluru",d:"May 2023 – Feb 2024",b:["Built ML models, including CNN-based computer vision and LSTM time-series work","Earlier completed a Data Analyst internship at iNeuron.ai"]},
+ {phase:"Founder"},
+ {ai:1,t:"Founder, Academia Bliss",o:"Ed-tech venture, Palakkad",d:"Jan – Dec 2022",b:["Ran an ed-tech business with a YouTube channel for UPSC coaching","Coordinated production of daily current-affairs videos"]},
+ {phase:"Electrical engineering"},
+ {t:"Junior Electrical Engineer",o:"EDAC Engineering, Chennai",d:"Sep 2019 – 2020",b:["Electrical engineering execution on project sites"]},
+ {t:"Electrical Engineer",o:"Bharath Electrical Contractors, Chennai",d:"Jul 2017 – Jan 2019",b:["Electrical installation and contracting projects"]},
+ {t:"Graduate Engineering Trainee",o:"Sterling and Wilson, Chennai",d:"Aug 2013 – Jul 2014",b:["Trained on large-scale electrical project execution"]}
+];
+const tl=document.getElementById("timeline");
+jobs.forEach((j,i)=>{
+  const li=document.createElement("li");
+  if(j.phase){li.className="phase";li.textContent=j.phase;tl.appendChild(li);return}
+  li.className="job"+(j.ai?" ai":"");
+  const id="job"+i;
+  li.innerHTML=`<button type="button" aria-expanded="${!!j.open}" aria-controls="${id}"><span class="t">${j.t}</span><span class="d">${j.d}</span><span class="o">${j.o}</span><span class="chev">${j.open?"−":"+"}</span></button><div class="body" id="${id}" ${j.open?"":"hidden"}><ul>${j.b.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  const btn=li.querySelector("button"),body=li.querySelector(".body"),chev=li.querySelector(".chev");
+  btn.addEventListener("click",()=>{const o=body.hidden;body.hidden=!o;btn.setAttribute("aria-expanded",o);chev.textContent=o?"−":"+"});
+  tl.appendChild(li);
+});
+
+const projects=[
+ {t:"Multi-department LLM assistant",c:"GenAI",p:"An LLM assistant for a large oil & gas company, with data isolated per department (HR, finance, production) and RAG-based document ingestion.",g:["RAG","Access control","Enterprise"]},
+ {t:"RAG document automation",c:"GenAI",p:"A retrieval-augmented system that automated document handling and cut manual effort significantly.",g:["RAG","LLM","Automation"]},
+ {t:"Generative AI health assistant",c:"GenAI",p:"A conversational assistant for health-related queries, built on generative AI.",g:["LLM","Chatbot"]},
+ {t:"Chat and voice AI bots",c:"GenAI",p:"Delivered both chat-based conversational AI and voicebot projects for clients.",g:["Voice AI","Conversational AI"]},
+ {t:"Computer vision safety system",c:"Vision & ML",p:"Video analytics that detect safety issues on industrial sites.",g:["CNN","Video analytics","Safety"]},
+ {t:"Predictive maintenance models",c:"Vision & ML",p:"Time-series models that flag equipment likely to fail before it does.",g:["LSTM","IIoT","Manufacturing"]},
+ {t:"Secure CI/CD pipeline",c:"Platform",p:"GitHub → PyArmor → Docker → AWS ECR pipeline for a global agribusiness client, protecting shipped model code.",g:["AWS ECR","Docker","DevSecOps"]},
+ {t:"Container platform migration",c:"Platform",p:"Migrated infrastructure to AWS ECS and contributed HL/LL architecture for clients in African markets.",g:["AWS ECS","Azure","Architecture"]},
+ {t:"Warehouse Management System",c:"Enterprise",p:"Managed the WMS as PM, including sourcing and onboarding the hardware vendors.",g:["WMS","Vendors","Supply chain"]},
+ {t:"Appointment scheduling system",c:"Enterprise",p:"End-to-end delivery of a scheduling platform.",g:["Web app","Delivery"]},
+ {t:"Digital logbook",c:"Enterprise",p:"Replaced paper logbooks with a digital system for operational records.",g:["Digitisation","Operations"]},
+ {t:"Visitor management rollout",c:"Enterprise",p:"Ran the rollout of a visitor management system for company security, including training and change management.",g:["Security","Change management"]},
+ {t:"RPA and workflow automation",c:"Platform",p:"Built automation flows in Power Automate Desktop and n8n/Make/Zapier-style tools.",g:["Power Automate","RPA"]}
+];
+const cats=["All",...new Set(projects.map(p=>p.c))];
+let active="All";
+try{const s=localStorage.getItem("pf-filter");if(cats.includes(s))active=s}catch(e){}
+const fEl=document.getElementById("filters"),grid=document.getElementById("grid"),count=document.getElementById("count");
+function render(){
+  fEl.innerHTML="";
+  cats.forEach(c=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=c;b.setAttribute("aria-pressed",c===active);
+    b.onclick=()=>{active=c;try{localStorage.setItem("pf-filter",c)}catch(e){}render()};fEl.appendChild(b)});
+  const list=projects.filter(p=>active==="All"||p.c===active);
+  count.textContent=`${list.length} of ${projects.length} projects`;
+  grid.innerHTML=list.map(p=>`<article class="proj"><span class="eyebrow">${p.c}</span><h3>${p.t}</h3><p>${p.p}</p><div class="tags">${p.g.map(g=>`<span class="tag">${g}</span>`).join("")}</div></article>`).join("");
+}
+render();
+
+document.getElementById("copy").addEventListener("click",()=>{
+  const t=document.getElementById("toast"),txt=document.getElementById("email").textContent;
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);t.textContent="Selected. Press Ctrl+C to copy."};
+  try{navigator.clipboard.writeText(txt).then(()=>{t.textContent="Copied"},sel)}catch(e){sel()}
+});
+</script>
+</body>
+</html>
